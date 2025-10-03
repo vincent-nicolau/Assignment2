@@ -82,6 +82,7 @@
             lstMakeModel.Name = "lstMakeModel";
             lstMakeModel.Size = new Size(150, 94);
             lstMakeModel.TabIndex = 1;
+            lstMakeModel.SelectedIndexChanged += lstMakeModel_SelectedIndexChanged;
             // 
             // lblYear
             // 
@@ -242,10 +243,33 @@
             btnPurchase.AccessibleName = "Purchase";
             btnPurchase.Location = new Point(30, 185);
             btnPurchase.Name = "btnPurchase";
-            btnPurchase.Size = new Size(150, 30); // Same width as lstMakeModel
+            btnPurchase.Size = new Size(150, 30);
             btnPurchase.TabIndex = 16;
             btnPurchase.Text = "&Purchase";
-            btnPurchase.UseVisualStyleBackColor = true; 
+            btnPurchase.UseVisualStyleBackColor = true;
+            // Update Make and Model ListBox items
+            lstMakeModel.Items.Clear();
+            lstMakeModel.Items.AddRange(new object[] {
+                "Toyota Camry",
+                "Jeep Grand Cherokee",
+                "Honda CRV",
+                "GMC Sierra",
+                "Hyundai Ioniq"
+            });
+
+            // Update Color RadioButtons
+            radRed.Text = "Red";
+            radBlue.Text = "Blue";
+            radBlack.Text = "White"; // Change label to "White"
+            radBlack.Name = "radWhite"; // Update name for clarity
+            radWhite.Text = "Silver"; // Change label to "Silver"
+            radWhite.Name = "radSilver"; // Update name for clarity
+
+            // Update Features CheckBoxes
+            chkPowerWindows.Text = "Heated seats";
+            chkAC.Text = "Sirius XM";
+            chkSiriusRadio.Text = "Adaptive cruise";
+            chkLaneAssist.Text = "Performance package";
             // 
             // lblPurchaseSummary
             // 
@@ -254,16 +278,15 @@
             lblPurchaseSummary.BorderStyle = BorderStyle.FixedSingle;
             lblPurchaseSummary.Location = new Point(200, 185);
             lblPurchaseSummary.Name = "lblPurchaseSummary";
-            lblPurchaseSummary.Size = new Size(490, 30); // 100 (Year) + 150 (Colors) + 200 (Features) + 40 (spacing)
+            lblPurchaseSummary.Size = new Size(490, 30);
             lblPurchaseSummary.TabIndex = 17;
-            lblPurchaseSummary.Text = "";
             lblPurchaseSummary.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(930, 240);
+            ClientSize = new Size(730, 240);
             Controls.Add(lblMakeModel);
             Controls.Add(lstMakeModel);
             Controls.Add(lblYear);
