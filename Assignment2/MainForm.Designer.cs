@@ -1,30 +1,32 @@
-﻿namespace Assignment2
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Assignment2
 {
     partial class MainForm
     {
         private System.ComponentModel.IContainer components = null;
 
-        // Controls with prefix naming conventions
-        private System.Windows.Forms.Label lblMakeModel;
-        private System.Windows.Forms.ListBox lstMakeModel;
-        private System.Windows.Forms.Label lblYear;
-        private System.Windows.Forms.TextBox txtYear;
-        private System.Windows.Forms.GroupBox grpColors;
-        private System.Windows.Forms.Label lblColors;
-        private System.Windows.Forms.RadioButton radRed;
-        private System.Windows.Forms.RadioButton radBlue;
-        private System.Windows.Forms.RadioButton radBlack;
-        private System.Windows.Forms.RadioButton radWhite;
+        private Label lblMakeModel;
+        private ListBox lstMakeModel;
+        private Label lblYear;
+        private TextBox txtYear;
 
-        private System.Windows.Forms.GroupBox grpFeatures;
-        private System.Windows.Forms.Label lblFeatures;
-        private System.Windows.Forms.CheckBox chkPowerWindows;
-        private System.Windows.Forms.CheckBox chkAC;
-        private System.Windows.Forms.CheckBox chkSiriusRadio;
-        private System.Windows.Forms.CheckBox chkLaneAssist;
+        private GroupBox grpColors;
+        private RadioButton radRed;
+        private RadioButton radBlue;
+        private RadioButton radWhite;
+        private RadioButton radSilver;
 
-        private System.Windows.Forms.Button btnPurchase;
-        private System.Windows.Forms.Label lblPurchaseSummary;
+        private GroupBox grpFeatures;
+        private CheckBox chkHeatedSeats;
+        private CheckBox chkPerformancePackage;
+        private CheckBox chkAdaptiveCruise;
+        private CheckBox chkSatelliteRadio;
+
+        private Button btnPurchase;
+        private Label lblPurchaseSummary;
 
         protected override void Dispose(bool disposing)
         {
@@ -46,15 +48,13 @@
             grpColors = new GroupBox();
             radRed = new RadioButton();
             radBlue = new RadioButton();
-            radBlack = new RadioButton();
             radWhite = new RadioButton();
-            lblColors = new Label();
+            radSilver = new RadioButton();
             grpFeatures = new GroupBox();
-            lblFeatures = new Label();
-            chkPowerWindows = new CheckBox();
-            chkAC = new CheckBox();
-            chkSiriusRadio = new CheckBox();
-            chkLaneAssist = new CheckBox();
+            chkHeatedSeats = new CheckBox();
+            chkPerformancePackage = new CheckBox();
+            chkAdaptiveCruise = new CheckBox();
+            chkSatelliteRadio = new CheckBox();
             btnPurchase = new Button();
             lblPurchaseSummary = new Label();
             grpColors.SuspendLayout();
@@ -63,7 +63,6 @@
             // 
             // lblMakeModel
             // 
-            lblMakeModel.AccessibleDescription = "Label for Make and Model list box";
             lblMakeModel.AccessibleName = "Make and Model";
             lblMakeModel.AutoSize = true;
             lblMakeModel.Location = new Point(30, 20);
@@ -71,22 +70,19 @@
             lblMakeModel.Size = new Size(96, 15);
             lblMakeModel.TabIndex = 0;
             lblMakeModel.Text = "&Make and Model";
-            lblMakeModel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lstMakeModel
             // 
             lstMakeModel.FormattingEnabled = true;
             lstMakeModel.ItemHeight = 15;
-            lstMakeModel.Items.AddRange(new object[] { "Chevrolet Silverado", "Ford F-150", "Toyota Yaris", "Honda Civic" });
+            lstMakeModel.Items.AddRange(new object[] { "Toyota Camry", "GMC Sierra", "Jeep Grand Cherokee", "Honda CRV" });
             lstMakeModel.Location = new Point(30, 40);
             lstMakeModel.Name = "lstMakeModel";
             lstMakeModel.Size = new Size(150, 94);
             lstMakeModel.TabIndex = 1;
-            lstMakeModel.SelectedIndexChanged += lstMakeModel_SelectedIndexChanged;
             // 
             // lblYear
             // 
-            lblYear.AccessibleDescription = "Label for Year text box";
             lblYear.AccessibleName = "Year";
             lblYear.AutoSize = true;
             lblYear.Location = new Point(200, 20);
@@ -94,7 +90,6 @@
             lblYear.Size = new Size(29, 15);
             lblYear.TabIndex = 2;
             lblYear.Text = "&Year";
-            lblYear.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtYear
             // 
@@ -107,14 +102,14 @@
             // 
             grpColors.Controls.Add(radRed);
             grpColors.Controls.Add(radBlue);
-            grpColors.Controls.Add(radBlack);
             grpColors.Controls.Add(radWhite);
-            grpColors.Controls.Add(lblColors);
+            grpColors.Controls.Add(radSilver);
             grpColors.Location = new Point(320, 20);
             grpColors.Name = "grpColors";
             grpColors.Size = new Size(150, 150);
             grpColors.TabIndex = 4;
             grpColors.TabStop = false;
+            grpColors.Text = "&Colors";
             // 
             // radRed
             // 
@@ -138,155 +133,105 @@
             radBlue.Text = "Blue";
             radBlue.UseVisualStyleBackColor = true;
             // 
-            // radBlack
-            // 
-            radBlack.AutoSize = true;
-            radBlack.Location = new Point(10, 80);
-            radBlack.Name = "radBlack";
-            radBlack.Size = new Size(53, 19);
-            radBlack.TabIndex = 8;
-            radBlack.TabStop = true;
-            radBlack.Text = "Black";
-            radBlack.UseVisualStyleBackColor = true;
-            // 
             // radWhite
             // 
             radWhite.AutoSize = true;
-            radWhite.Location = new Point(10, 100);
+            radWhite.Location = new Point(10, 80);
             radWhite.Name = "radWhite";
             radWhite.Size = new Size(56, 19);
-            radWhite.TabIndex = 9;
+            radWhite.TabIndex = 8;
             radWhite.TabStop = true;
             radWhite.Text = "White";
             radWhite.UseVisualStyleBackColor = true;
             // 
-            // lblColors
+            // radSilver
             // 
-            lblColors.AccessibleDescription = "Label for color selection";
-            lblColors.AccessibleName = "Colors";
-            lblColors.AutoSize = true;
-            lblColors.Location = new Point(10, 15);
-            lblColors.Name = "lblColors";
-            lblColors.Size = new Size(41, 15);
-            lblColors.TabIndex = 5;
-            lblColors.Text = "&Colors";
-            lblColors.TextAlign = ContentAlignment.MiddleLeft;
+            radSilver.AutoSize = true;
+            radSilver.Location = new Point(10, 100);
+            radSilver.Name = "radSilver";
+            radSilver.Size = new Size(53, 19);
+            radSilver.TabIndex = 9;
+            radSilver.TabStop = true;
+            radSilver.Text = "Silver";
+            radSilver.UseVisualStyleBackColor = true;
             // 
             // grpFeatures
             // 
-            grpFeatures.Controls.Add(lblFeatures);
-            grpFeatures.Controls.Add(chkPowerWindows);
-            grpFeatures.Controls.Add(chkAC);
-            grpFeatures.Controls.Add(chkSiriusRadio);
-            grpFeatures.Controls.Add(chkLaneAssist);
+            grpFeatures.Controls.Add(chkHeatedSeats);
+            grpFeatures.Controls.Add(chkPerformancePackage);
+            grpFeatures.Controls.Add(chkAdaptiveCruise);
+            grpFeatures.Controls.Add(chkSatelliteRadio);
             grpFeatures.Location = new Point(490, 20);
             grpFeatures.Name = "grpFeatures";
             grpFeatures.Size = new Size(200, 150);
             grpFeatures.TabIndex = 10;
             grpFeatures.TabStop = false;
+            grpFeatures.Text = "&Features";
             // 
-            // lblFeatures
+            // chkHeatedSeats
             // 
-            lblFeatures.AccessibleDescription = "Label for features selection";
-            lblFeatures.AccessibleName = "Features";
-            lblFeatures.AutoSize = true;
-            lblFeatures.Location = new Point(10, 15);
-            lblFeatures.Name = "lblFeatures";
-            lblFeatures.Size = new Size(51, 15);
-            lblFeatures.TabIndex = 11;
-            lblFeatures.Text = "&Features";
-            lblFeatures.TextAlign = ContentAlignment.MiddleLeft;
+            chkHeatedSeats.AutoSize = true;
+            chkHeatedSeats.Location = new Point(10, 40);
+            chkHeatedSeats.Name = "chkHeatedSeats";
+            chkHeatedSeats.Size = new Size(93, 19);
+            chkHeatedSeats.TabIndex = 12;
+            chkHeatedSeats.Text = "Heated seats";
+            chkHeatedSeats.UseVisualStyleBackColor = true;
             // 
-            // chkPowerWindows
+            // chkPerformancePackage
             // 
-            chkPowerWindows.AutoSize = true;
-            chkPowerWindows.Location = new Point(10, 40);
-            chkPowerWindows.Name = "chkPowerWindows";
-            chkPowerWindows.Size = new Size(109, 19);
-            chkPowerWindows.TabIndex = 12;
-            chkPowerWindows.Text = "Power windows";
-            chkPowerWindows.UseVisualStyleBackColor = true;
+            chkPerformancePackage.AutoSize = true;
+            chkPerformancePackage.Location = new Point(10, 60);
+            chkPerformancePackage.Name = "chkPerformancePackage";
+            chkPerformancePackage.Size = new Size(141, 19);
+            chkPerformancePackage.TabIndex = 13;
+            chkPerformancePackage.Text = "Performance package";
+            chkPerformancePackage.UseVisualStyleBackColor = true;
             // 
-            // chkAC
+            // chkAdaptiveCruise
             // 
-            chkAC.AutoSize = true;
-            chkAC.Location = new Point(10, 60);
-            chkAC.Name = "chkAC";
-            chkAC.Size = new Size(42, 19);
-            chkAC.TabIndex = 13;
-            chkAC.Text = "AC";
-            chkAC.UseVisualStyleBackColor = true;
+            chkAdaptiveCruise.AutoSize = true;
+            chkAdaptiveCruise.Location = new Point(10, 80);
+            chkAdaptiveCruise.Name = "chkAdaptiveCruise";
+            chkAdaptiveCruise.Size = new Size(107, 19);
+            chkAdaptiveCruise.TabIndex = 14;
+            chkAdaptiveCruise.Text = "Adaptive cruise";
+            chkAdaptiveCruise.UseVisualStyleBackColor = true;
             // 
-            // chkSiriusRadio
+            // chkSatelliteRadio
             // 
-            chkSiriusRadio.AutoSize = true;
-            chkSiriusRadio.Location = new Point(10, 80);
-            chkSiriusRadio.Name = "chkSiriusRadio";
-            chkSiriusRadio.Size = new Size(84, 19);
-            chkSiriusRadio.TabIndex = 14;
-            chkSiriusRadio.Text = "Sirius radio";
-            chkSiriusRadio.UseVisualStyleBackColor = true;
-            // 
-            // chkLaneAssist
-            // 
-            chkLaneAssist.AutoSize = true;
-            chkLaneAssist.Location = new Point(10, 100);
-            chkLaneAssist.Name = "chkLaneAssist";
-            chkLaneAssist.Size = new Size(107, 19);
-            chkLaneAssist.TabIndex = 15;
-            chkLaneAssist.Text = "Lane assistance";
-            chkLaneAssist.UseVisualStyleBackColor = true;
+            chkSatelliteRadio.AutoSize = true;
+            chkSatelliteRadio.Location = new Point(10, 100);
+            chkSatelliteRadio.Name = "chkSatelliteRadio";
+            chkSatelliteRadio.Size = new Size(97, 19);
+            chkSatelliteRadio.TabIndex = 15;
+            chkSatelliteRadio.Text = "Satellite radio";
+            chkSatelliteRadio.UseVisualStyleBackColor = true;
             // 
             // btnPurchase
             // 
-            btnPurchase.AccessibleDescription = "Button to complete purchase";
-            btnPurchase.AccessibleName = "Purchase";
-            btnPurchase.Location = new Point(30, 185);
+            btnPurchase.Location = new Point(30, 212);
             btnPurchase.Name = "btnPurchase";
             btnPurchase.Size = new Size(150, 30);
             btnPurchase.TabIndex = 16;
             btnPurchase.Text = "&Purchase";
             btnPurchase.UseVisualStyleBackColor = true;
-            // Update Make and Model ListBox items
-            lstMakeModel.Items.Clear();
-            lstMakeModel.Items.AddRange(new object[] {
-                "Toyota Camry",
-                "Jeep Grand Cherokee",
-                "Honda CRV",
-                "GMC Sierra",
-                "Hyundai Ioniq"
-            });
-
-            // Update Color RadioButtons
-            radRed.Text = "Red";
-            radBlue.Text = "Blue";
-            radBlack.Text = "White"; // Change label to "White"
-            radBlack.Name = "radWhite"; // Update name for clarity
-            radWhite.Text = "Silver"; // Change label to "Silver"
-            radWhite.Name = "radSilver"; // Update name for clarity
-
-            // Update Features CheckBoxes
-            chkPowerWindows.Text = "Heated seats";
-            chkAC.Text = "Sirius XM";
-            chkSiriusRadio.Text = "Adaptive cruise";
-            chkLaneAssist.Text = "Performance package";
+            btnPurchase.Click += btnPurchase_Click_1;
             // 
             // lblPurchaseSummary
             // 
-            lblPurchaseSummary.AccessibleDescription = "Displays the summary of the purchase";
-            lblPurchaseSummary.AccessibleName = "Purchase Summary";
             lblPurchaseSummary.BorderStyle = BorderStyle.FixedSingle;
-            lblPurchaseSummary.Location = new Point(200, 185);
+            lblPurchaseSummary.Location = new Point(200, 212);
             lblPurchaseSummary.Name = "lblPurchaseSummary";
-            lblPurchaseSummary.Size = new Size(490, 30);
+            lblPurchaseSummary.Size = new Size(490, 55);
             lblPurchaseSummary.TabIndex = 17;
-            lblPurchaseSummary.TextAlign = ContentAlignment.MiddleLeft;
+            lblPurchaseSummary.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(730, 240);
+            ClientSize = new Size(724, 320);
             Controls.Add(lblMakeModel);
             Controls.Add(lstMakeModel);
             Controls.Add(lblYear);
@@ -297,7 +242,7 @@
             Controls.Add(lblPurchaseSummary);
             Name = "MainForm";
             Text = "Assignment 2";
-            Load += Form1_Load;
+            Load += MainForm_Load;
             grpColors.ResumeLayout(false);
             grpColors.PerformLayout();
             grpFeatures.ResumeLayout(false);
