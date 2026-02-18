@@ -3,6 +3,21 @@
 @{
     ViewData["Title"] = "Privacy Policy";
 }
+@if (string.IsNullOrEmpty(Model.PersonModel.Name) || Model.PersonModel == null)
+{
+    <h1>No birthdays today. Sorry!</h1>
+}
+else if (Model.PersonModel.Age <= 0)
+{
+    <h1>@Model.PersonModel.Name is @Model.PersonModel.Age years old? Are you for real?</h1>
+}
+else
+{
+    for (int i = 1; i <= Model.PersonModel.Age; i++)
+    {
+        <h1>Happy @i birthday @Model.PersonModel.Name!</h1>
+    }
+}
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
