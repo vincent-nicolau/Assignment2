@@ -3,14 +3,17 @@
 @{
     ViewData["Title"] = "Privacy Policy";
 }
+<!--If PersonModel is null or Name is empty-->
 @if (Model.PersonModel == null || string.IsNullOrEmpty(Model.PersonModel.Name))
 {
     <h1>No birthdays today. Sorry!</h1>
 }
+<!--If Age is less than or equal to 0-->
 else if (Model.PersonModel.Age <= 0)
 {
     <h1>@Model.PersonModel.Name is @Model.PersonModel.Age years old? Are you for real?</h1>
 }
+<!--Normal for loop printing function-->
 else
 {
     for (int i = 1; i <= Model.PersonModel.Age; i++)

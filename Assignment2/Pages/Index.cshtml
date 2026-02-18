@@ -3,11 +3,13 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<!--Link: Name = Evan, Age = 20-->
 <div class="border rounded p-3 mb-3 border border-primary">
     <a asp-page="/Privacy" asp-route-Name="Evan" asp-route-Age="20">
         Happy birthday Evan!
     </a>
 </div>
+<!--GET option-->
 <div class="border rounded p-3 mb-3 border border-primary">
     <h3>GET</h3>
     <form method="get" asp-page="/Privacy">
@@ -18,6 +20,7 @@
         <button type="submit">Submit</button>
     </form>
 </div>
+<!--CROSS POST option-->
 <div class="border rounded p-3 mb-3 border border-primary">
     <h3>CROSS POST</h3>
     <form method="post" asp-page="/Privacy">
@@ -28,6 +31,7 @@
         <button type="submit">Submit</button>
     </form>
 </div>
+<!--POSTBACK option-->
 <div class="border rounded p-3 mb-3 border border-primary">
     <h3>POSTBACK</h3>
     <form method="post">

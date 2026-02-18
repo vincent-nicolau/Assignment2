@@ -11,7 +11,7 @@ namespace Assignment2.Pages
         {
             _logger = logger;
         }
-        [BindProperty(SupportsGet = true)]
+        [BindProperty]
         public PersonModel? PersonModel { get; set; }
         public void OnGet()
         {
@@ -22,7 +22,6 @@ namespace Assignment2.Pages
                 _logger.LogInformation("Age={Age}", PersonModel.Age);
             }
         }
-
         public IActionResult OnPost()
         {
             _logger.LogInformation("Index - OnPost");

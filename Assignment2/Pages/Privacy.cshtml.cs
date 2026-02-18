@@ -7,7 +7,6 @@ namespace Assignment2.Pages
     public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
-
         public PrivacyModel(ILogger<PrivacyModel> logger)
         {
             _logger = logger;
@@ -23,7 +22,6 @@ namespace Assignment2.Pages
                 _logger.LogInformation("Age={Age}", PersonModel.Age);
             }
         }
-
         public void OnPost()
         {
             _logger.LogInformation("Privacy - OnPost");
