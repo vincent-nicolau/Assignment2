@@ -12,7 +12,7 @@ namespace Assignment2.Pages
         {
             _logger = logger;
         }
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public PersonModel? PersonModel { get; set; }
         public void OnGet()
         {
@@ -26,6 +26,12 @@ namespace Assignment2.Pages
 
         public void OnPost()
         {
+            _logger.LogInformation("Privacy - OnPost");
+            if (PersonModel != null)
+            {
+                _logger.LogInformation("Name={Name}", PersonModel.Name);
+                _logger.LogInformation("Age={Age}", PersonModel.Age);
+            }
         }
     }
 }

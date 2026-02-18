@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Privacy Policy";
 }
-@if (string.IsNullOrEmpty(Model.PersonModel.Name) || Model.PersonModel == null)
+@if (Model.PersonModel == null || string.IsNullOrEmpty(Model.PersonModel.Name))
 {
     <h1>No birthdays today. Sorry!</h1>
 }
